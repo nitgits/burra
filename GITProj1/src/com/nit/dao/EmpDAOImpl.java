@@ -14,5 +14,10 @@ public class EmpDAOImpl implements EmpDAO {
 		util=JdbcUtil.getConnection("oracle:thin:@localhost:1521:xe", "system", "system");
 		return "Connection established";
 	}
+	
+	
+	public String hello() {
+		return "Helo from dev";
+	}
 
 }
