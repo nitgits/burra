@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+<!-- cfg handler mapping -->
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="register.htm">rc</prop>
+</props>
+</property>
+</bean>
+
+<bean id="rc" class="com.nit.controller.RegistrationController">
+<property name="formView" value="register"/>
+<property name="successView" value="register"/>
+<property name="commandName" value="regCmd"/>
+<property name="commandClass" value="com.nit.controller.RegistrationController"/>
+<constructor-arg ref="regService"/>
+</bean>
+
+
+</beans>
