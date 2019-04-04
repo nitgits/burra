@@ -1,0 +1,1 @@
+SQL> create table customerInfo(cno number(10) primary key,cname varchar2(20),cadd varchar2(20),mobileno number(10),billamt number(10));
