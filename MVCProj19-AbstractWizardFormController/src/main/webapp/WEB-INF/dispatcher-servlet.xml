@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+<!-- cfg handler class -->
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="welcome.htm">pvc</prop>
+<prop key="register.htm">rc</prop>
+</props>
+</property>
+</bean>
+
+<!-- cfg handler classes -->
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="home"/>
+</bean>
+
+<bean id="rc" class="com.nit.controller.RegistrationController">
+<property name="commandName" value="regCmd"/>
+<property name="commandClass" value="com.nit.command.RegisterCommand"/>
+<property name="pages">
+<array>
+<value>form1</value>
+<value>form2</value>
+<value>form3</value>
+</array>
+</property>
+</bean>
+
+<!-- cfg view resolver -->
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+</beans>
