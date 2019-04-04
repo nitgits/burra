@@ -1,0 +1,20 @@
+MultiActionController is used when input jsp having multiple hyperlink or multiple submit buttons.
+In previous examples for every hyperlink or submit button we take the seperate class and override the existing super class methods, so we must foresbly take one class per one hyperlink/button.
+so to avoid that use MultiActionController by taking user-defined methods. 
+but it is not responsible to launching the form page,only it process the request. 
+
+
+
+for processing the request,the data must keep somewhere nothing but in command class, so it provides request wrapping (storing the form data to command class obj). 
+here we are not cfg any command class obj in cfg file.but it recognize using method if the 3rd param is session obj, it recognize 4th param as command class, sometimes the 3rd param only command class.
+
+public MAV/void/Map/String <method-name>(HttoServletRequest req,HttpServletRresponse res,Command cmd)
+         (or)
+public MAV/void/Map/String <method-name>(HttoServletRequest req,HttpServletRresponse res,HttpSession ses,Command cmd)
+
+
+In MultiActionController the req is proceed by which method is decided by based on which methodNameResolver we cfg.
+There are 3 methodNameResolver::
+a)parameterMethodNameResolver
+b)PropertiesMethosNameResolver.
+c)InternalPathMethosNameReslover. 

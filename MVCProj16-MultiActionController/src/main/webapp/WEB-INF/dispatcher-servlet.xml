@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+<!-- cfg handler mapping  -->
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="welcome.htm">pvc</prop>
+<prop key="user.htm">coc</prop>
+</props>
+</property>
+</bean>
+
+
+<!--cfg handler classes-->
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+<property name="viewName" value="user"/>
+</bean>
+
+<bean id="coc" class="com.nit.controller.CrudOperationsController">
+<property name="methodNameResolver" ref="pmnr"></property>
+</bean>
+
+<!--  cfg methodNameResolver -->
+<bean id="pmnr" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+<property name="paramName" value="s1"/>
+</bean>
+
+
+<!-- cfg vir=ew resolver -->
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+</beans>
