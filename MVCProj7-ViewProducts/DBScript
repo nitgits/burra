@@ -1,0 +1,9 @@
+SQL> create table product(pid number(5),pname varchar2(10),price number(10,2),stockqty number(10,2),mfgdate date,exydate date);
+SQL> select * from product;
+
+       PID PNAME           PRICE   STOCKQTY MFGDATE   EXYDATE
+---------- ---------- ---------- ---------- --------- ---------
+       101 table            2000        200 10-JUN-14 15-OCT-25
+       102 chair            1000        200 10-JUN-15 15-OCT-19
+       103 plates            300        500 05-FEB-10 17-MAR-12
+       104 bowls              30       1000 21-JAN-18 17-MAR-21

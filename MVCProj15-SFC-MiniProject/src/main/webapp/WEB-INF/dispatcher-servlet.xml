@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+<!-- cfg handler mappings -->
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<property name="mappings">
+<props>
+<prop key="register.htm">cbc</prop>
+</props>
+</property>
+</bean>
+<import resource="service-beans.xml"/>
+<!-- cfg handler classes -->
+<bean id="cbc" class="com.nit.controller.CustomerBookingController">
+<property name="formView" value="booking_items"/>
+<property name="successView" value="booking_items"/>
+<property name="commandClass" value="com.nit.command.CustomerCommand"/>
+<property name="commandName" value="custCmd"/>
+<property name="sessionForm" value="true"/>
+<constructor-arg ref="custService"/>
+</bean>
+
+<!-- cfg view resolver -->
+<bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/pages/"/>
+<property name="suffix" value=".jsp"/>
+</bean>
+</beans>

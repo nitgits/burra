@@ -1,0 +1,5 @@
+SQL> select * from employee;
+
+       EID ENAME      DESG                     SALARY
+---------- ---------- -------------------- ----------
+       200 rani       dev                       20000
